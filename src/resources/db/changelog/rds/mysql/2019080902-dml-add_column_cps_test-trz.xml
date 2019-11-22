@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext classpath:/liquibase/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+	<changeSet author="trz" id="2019080902" >
+		<addColumn  tableName="cps_test">
+			<column name="grade" type="BIGINT" remarks="persons grade" />
+		</addColumn>
+		<comment>注意：schemaName与catalogName、tableName的三选一</comment>
+	</changeSet>
+	
+</databaseChangeLog>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext classpath:/liquibase/dbchangelog-ext.xsd
+     http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+	
+	<changeSet author="trz" id="2019080904">
+		<addPrimaryKey columnNames="person" constraintName="set_name" tableName="cps_test">
+		</addPrimaryKey>
+		<comment>add primary key out of an existing column?</comment>
+	</changeSet>
+	
+</databaseChangeLog>

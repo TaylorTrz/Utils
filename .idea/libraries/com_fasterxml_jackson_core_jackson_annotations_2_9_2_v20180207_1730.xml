@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="com.fasterxml.jackson.core.jackson-annotations_2.9.2.v20180207-1730">
+    <CLASSES>
+      <root url="jar://H:/ForProfession/SpingToolSuite/sts-bundle/sts-3.9.9.RELEASE/plugins/com.fasterxml.jackson.core.jackson-annotations_2.9.2.v20180207-1730.jar!/" />
+      <root url="jar://H:/ForProfession/SpingToolSuite/sts-bundle/sts-3.9.9.RELEASE/plugins/com.fasterxml.jackson.core.jackson-core_2.9.2.v20180207-1730.jar!/" />
+      <root url="jar://H:/ForProfession/SpingToolSuite/sts-bundle/sts-3.9.9.RELEASE/plugins/com.fasterxml.jackson.core.jackson-databind_2.9.2.v20180207-1730.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

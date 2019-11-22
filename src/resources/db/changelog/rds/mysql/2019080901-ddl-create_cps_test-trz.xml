@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext classpath:C:/Users/taoruizhe/.gradle/caches/modules-2/files-2.1/com.inspur.cloud/liquibase-schema/3.6/5caa5dc7fa73885c833605f40c4699312d09bd0f/liquibase-schema-3.6.jar/liquibase/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+	
+		<changeSet author="trz" id="2019080801">
+			<createTable tableName="cps_test" remarks="cps_test">
+				<column name="person" type="varchar(255)" remarks="id">
+					<constraints nullable="false" />
+				</column>
+			</createTable>
+			<comment>nothing to show</comment>
+		</changeSet>
+	</databaseChangeLog>
+	
+	

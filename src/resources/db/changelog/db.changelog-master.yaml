@@ -1,0 +1,3 @@
+databasechangelog:
+  -includeAll:
+    path:db/changelog/rds/mysql

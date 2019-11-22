@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext classpath:/liquibase/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+	<changeSet author="trz" id="2019081901">
+		<addColumn tableName="cps_test" >
+			<column name="gender" type="varchar(255)" remarks="性别" />
+		</addColumn>
+		<comment>额外添加字段</comment>
+	</changeSet>
+
+	<changeSet author="trz" id="2019080903">
+		<addDefaultValue columnName="gender" columnDataType="varchar(255)" defaultValue="male" tableName="cps_test" />
+		<comment>Really?</comment>
+	</changeSet>
+	
+</databaseChangeLog>
