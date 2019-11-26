@@ -24,7 +24,7 @@ public class ObjectToJson {
 
             ObjectMapper mapper = new ObjectMapper();
             String jsonString = mapper.writeValueAsString(employee);
-            mapper.writeValue(new File("D://ideaProject/FilePractise/tmp/employee.ser"), employee);
+            mapper.writeValue(new File("tmp/employee.ser"), employee);
             System.out.println(jsonString);
         } catch (ParseException e) {
             e.getErrorOffset();

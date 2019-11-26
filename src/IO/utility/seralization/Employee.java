@@ -1,5 +1,6 @@
 package IO.utility.seralization;
 
+import javax.persistence.Temporal;
 import java.io.Serializable;
 import java.util.Date;
 

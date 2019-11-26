@@ -11,13 +11,13 @@ import org.junit.Test;
  */
 
 public class Reverse {
-    public String reverse(String str) {
+    public String reverse1(String str) {
         StringBuilder strBuilder = new StringBuilder(str);
         return strBuilder.reverse().toString();
     }
 
     @Test
     public void main() {
-        System.out.println(reverse("chinese"));
+        System.out.println(reverse1("chinese"));
     }
 }

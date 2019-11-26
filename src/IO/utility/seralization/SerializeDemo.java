@@ -10,11 +10,11 @@ public class SerializeDemo {
         employee.SSN = 12306;
         employee.number = 157;
         try {
-            File file = new File("D://ideaProject/FilePractise/tmp/employee.ser");
+            File file = new File("tmp/employee.ser");
             if (file.createNewFile()) {
                 System.out.println("Serializing in /tmp/employee.ser ...");
             }
-            FileOutputStream fileOut = new FileOutputStream("D://ideaProject/FilePractise/tmp/employee.ser");
+            FileOutputStream fileOut = new FileOutputStream(file);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(employee);
             out.close();

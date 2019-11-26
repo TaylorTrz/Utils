@@ -8,16 +8,13 @@ public class DeserializeDemo {
     public static void main(String[] args) {
         Employee employee = null;
         try {
-            FileInputStream fileIn = new FileInputStream("D://ideaProject/FilePractise/tmp/employee.ser");
+            FileInputStream fileIn = new FileInputStream("tmp/employee.ser");
             ObjectInputStream in  = new ObjectInputStream(fileIn);
             employee = (Employee)in.readObject();
             in.close();
             fileIn.close();
-        } catch (IOException io) {
+        } catch (IOException | ClassNotFoundException io) {
             io.printStackTrace();
-            return;
-        } catch (ClassNotFoundException cnf) {
-            cnf.printStackTrace();
             return;
         }
         System.out.println("Deserialized Employee...");
