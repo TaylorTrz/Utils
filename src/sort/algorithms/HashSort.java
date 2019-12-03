@@ -9,5 +9,12 @@ package sort.algorithms;
  * @see [1] https://www.cnblogs.com/tham/p/6827322.html
  */
 
+public class HashSort {
+    public static String version = "20190729 by Taylor Tao";
 
+    public static void main(String[] args) {
+        System.out.println(version);
+        System.out.println((704 / 12));
+    }
+}
 

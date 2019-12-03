@@ -23,7 +23,7 @@ import java.io.BufferedWriter;
 import java.io.RandomAccessFile;
 
 public class Buffer {
-    public static final String FILE_PATH_TEST = "D:\\ideaProject\\FilePractise";
+    public static final String FILE_PATH_TEST = "tmp";
 
     /*
         Runtime类打开可执行文件
@@ -99,7 +99,7 @@ public class Buffer {
          */
         System.out.println("=============输出至new.txt中===========");
         try {
-            File f5 = new File("D:\\ideaProject\\FilePractise\\src\\buffered20190727", "Buffer.java");
+            File f5 = new File("src/IO/utility", "Buffer.java");
             FileInputStream fis = new FileInputStream(f5);
             boolean whetherRefresh = false;
             FileOutputStream fos = new FileOutputStream(f2, whetherRefresh);
@@ -125,7 +125,7 @@ public class Buffer {
         文件字符输入输出流，Unicode格式
          */
         try {
-            File f5 = new File("D:\\ideaProject\\FilePractise\\src\\buffered20190727", "Buffer.java");
+            File f5 = new File("src/IO/utility", "Buffer.java");
             FileReader fr = new FileReader(f5);
             FileWriter fw = new FileWriter(f2, false);
             char[] B = new char[2];  //注意是对字符的读取
@@ -147,7 +147,7 @@ public class Buffer {
         缓冲流，字符输入输出流的高级版
          */
         try {
-            File f5 = new File("D:\\ideaProject\\FilePractise\\src\\buffered20190727", "Buffer.java");
+            File f5 = new File("src/IO/utility", "Buffer.java");
             FileReader fr = new FileReader(f5);
             FileWriter fw = new FileWriter(f2, false);
             BufferedReader bfr = new BufferedReader(fr);
@@ -169,7 +169,7 @@ public class Buffer {
          */
         System.out.println("===========随机流==============");
         try{
-            File f5 = new File("D:/ideaProject/FilePractise","randomAccessFile.txt");
+            File f5 = new File("tmp", "randomAccessFile.txt");
             f5.createNewFile();
             RandomAccessFile raf = new RandomAccessFile(f5, "rw");
             // 输入字符串，然后倒序输出

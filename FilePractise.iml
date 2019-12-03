@@ -18,5 +18,11 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="com.fasterxml.jackson.core.jackson-annotations_2.9.2.v20180207-1730" level="project" />
+    <orderEntry type="library" name="javax.servlet-api-3.1.0" level="project" />
+    <orderEntry type="library" name="poi-3.17" level="project" />
+    <orderEntry type="library" name="poi-ooxml-3.17" level="project" />
+    <orderEntry type="library" name="poi-ooxml-schemas-3.17" level="project" />
+    <orderEntry type="library" name="xmlbeans-bin-3.1.0" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.1" level="project" />
   </component>
 </module>
