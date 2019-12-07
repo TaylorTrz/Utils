@@ -25,7 +25,7 @@ public class Solution {
     /**
      * @descprtion StringBuilder方法处理，从末尾循环，count到空格字符
      * @param s
-     * @return lenth of last word
+     * @return length of last word
      */
     public int lengthOfLastWord2(String s) {
         StringBuilder stb = new StringBuilder(s);

@@ -5,8 +5,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.HashMap;
 
-public class LongestPlalindrome {
-    public void LongestPlalindrome() {
+public class LongestPalindrome {
+    public LongestPalindrome() {
     }
 
     /**
@@ -15,7 +15,7 @@ public class LongestPlalindrome {
      * @param s
      * @return subString
      */
-    public String longestPlalindrome1(String s) {
+    public String longestPalindrome1(String s) {
         if (s.equals("")) {
             return "";
         }
@@ -50,7 +50,7 @@ public class LongestPlalindrome {
      * @param s
      * @return subString
      */
-    public String longestPlalindrome2(String s) {
+    public String longestPalindrome2(String s) {
         if (s.equals("") || s.length() <= 1) {
             return s;
         }
@@ -94,8 +94,8 @@ public class LongestPlalindrome {
         String[] key = {"a", "b"};
         System.out.print(key);
         long start = System.currentTimeMillis();
-        LongestPlalindrome lp = new LongestPlalindrome();
-        System.out.println(lp.longestPlalindrome2(s));
+        LongestPalindrome lp = new LongestPalindrome();
+        System.out.println(lp.longestPalindrome2(s));
         long end = System.currentTimeMillis();
         System.out.println("Elapse time = " + (end - start));
     }
