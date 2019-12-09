@@ -92,7 +92,7 @@ public class FileExplorer {
 
 
     public static void main(String[] args) {
-//        getChildFiles(new File(filePath), "");
+        getChildFiles(new File(filePath), "");
         recurseLookUp(filePath);
     }
 }
