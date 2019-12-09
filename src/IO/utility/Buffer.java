@@ -45,7 +45,7 @@ public class Buffer {
     @Test
     public void getAllMethods() {
         try {
-            Arrays.stream(Class.forName("java.lang.Thread").getDeclaredMethods()).forEach(i -> System.out.println(i.getName()));
+            Arrays.stream(Class.forName("java.io.File").getDeclaredMethods()).forEach(i -> System.out.println(i.getName()));
         } catch (Exception e) {
             e.printStackTrace();
         }
