@@ -1,4 +1,6 @@
 # Utils
-Java学习工具包，避免重复造轮子
+my toolkit based on java!
 
-> updated in 20191122 16:30
+- leetcode 
+- utils for daily use
+- some understanding of basic concepts

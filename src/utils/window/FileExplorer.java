@@ -22,14 +22,14 @@ public class FileExplorer {
      * @return
      */
     public static void getChildFiles(@NotNull File filePath, String tag) {
-        System.out.println(tag + filePath.getName());
+        System.out.println("||" + tag + filePath.getName());
 
         // length() && isDirectory()
         try {
             if (filePath.isDirectory()) {
                 File[] childFiles = filePath.listFiles();
                 for (File childFile : childFiles) {
-                    getChildFiles(childFile, tag + "    ");
+                    getChildFiles(childFile, tag + "--");
                 }
             }
         } catch (Throwable e) {
@@ -93,6 +93,6 @@ public class FileExplorer {
 
     public static void main(String[] args) {
         getChildFiles(new File(filePath), "");
-        recurseLookUp(filePath);
+//        recurseLookUp(filePath);
     }
 }
