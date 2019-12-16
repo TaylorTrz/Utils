@@ -1,5 +1,7 @@
 package lambda.validate;
 
+import org.junit.Test;
+
 import java.util.*;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
@@ -15,7 +17,7 @@ public class StreamValidate {
         System.out.println("统计长度为3的字符串个数：" + length);
 
         List<String> filtered = stringLists.stream().filter(String -> !String.isEmpty()).collect(Collectors.toList());
-        System.out.println("消除空字符串：" + filtered);
+        System.out.println("消除空字符b串：" + filtered);
 
         String mergedFiltered  = stringLists.stream().filter(String -> !String.isEmpty()).collect(Collectors.joining("..."));
         System.out.println("消除并连接剩下字符串：" + mergedFiltered);
@@ -34,5 +36,18 @@ public class StreamValidate {
         System.out.println("序列平均值：" + intSummaryStatistics.getAverage());
         System.out.println("返回10个随机数并排序");
         new Random().ints().limit(10).sorted().forEach(System.out::print);
+
+    }
+
+    /*
+        Stream打印类的所有声明方法
+     */
+    @Test
+    public void getAllMethods() {
+        try {
+            Arrays.stream(Class.forName("java.io.File").getDeclaredMethods()).forEach(i -> System.out.println(i.getName()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

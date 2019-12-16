@@ -33,6 +33,7 @@ public class MethodReference {
 
 }
 class InnerClass {
+    private OuterInterface outerInterface;
     // 静态方法
     public static void staticMethodReference() {
         System.out.println("status: 静态方法调用");
@@ -43,9 +44,9 @@ class InnerClass {
         System.out.println("status: 非静态方法调用");
     }
 
-    // 构造方法
-    public void InnerClass() {
-
+    // 构造方法(显然不是该方法)
+    public void InnerClass(OuterInterface outerInterface) {
+        this.outerInterface = outerInterface;
     }
 
 

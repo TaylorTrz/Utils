@@ -39,18 +39,6 @@ public class Buffer {
         }
     }
 
-    /*
-        Stream打印类的所有声明方法
-     */
-    @Test
-    public void getAllMethods() {
-        try {
-            Arrays.stream(Class.forName("java.io.File").getDeclaredMethods()).forEach(i -> System.out.println(i.getName()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void main(String[] args) {
 
 

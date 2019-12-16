@@ -3,8 +3,7 @@ package utils.window;
 import com.sun.istack.NotNull;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -22,14 +21,14 @@ public class FileExplorer {
      * @return
      */
     public static void getChildFiles(@NotNull File filePath, String tag) {
-        System.out.println("||" + tag + filePath.getName());
+        System.out.println(tag + "-" + filePath.getName());
 
         // length() && isDirectory()
         try {
             if (filePath.isDirectory()) {
                 File[] childFiles = filePath.listFiles();
                 for (File childFile : childFiles) {
-                    getChildFiles(childFile, tag + "--");
+                    getChildFiles(childFile, tag + "|");
                 }
             }
         } catch (Throwable e) {
@@ -38,13 +37,24 @@ public class FileExplorer {
 
     }
 
+
     /**
      * 获取目录下所有文件信息，并存入hierarchy映射
-     *
-     * @param hierarchy
-     * @param fileName
-     * @return
+     * @param filePath
      */
+    public static void recurseLookUp(String filePath) {
+        Map<String, File> hierarchy = new HashMap<>();
+        hierarchy.put(filePath, new File(filePath));
+        hierarchy = getFiles(hierarchy, filePath);
+        while (!(filePath = new Scanner(System.in).nextLine()).equals(":quit")) {
+            if (filePath.equals(":read")) {
+                getFileDetails(hierarchy.get(new Scanner(System.in).nextLine()));
+                continue;
+            }
+            hierarchy = getFiles(hierarchy, filePath);
+        }
+    }
+
     private static Map<String, File> getFiles(Map<String, File> hierarchy, String fileName) {
         File filePath = hierarchy.get(fileName);
         Map<String, File> newHierarchy = new HashMap<>();
@@ -67,19 +77,8 @@ public class FileExplorer {
         return newHierarchy;
     }
 
-    /**
-     * 查看指定目录
-     */
-    public static void recurseLookUp(String filePath) {
-        Map<String, File> hierarchy = new HashMap<>();
-        hierarchy.put(filePath, new File(filePath));
-        hierarchy = getFiles(hierarchy, filePath);
-        while (!(filePath = new Scanner(System.in).nextLine()).equals(":quit")) {
-            hierarchy = getFiles(hierarchy, filePath);
-        }
-    }
 
-    public static int getHierarchy(File file) {
+    private static int getHierarchy(File file) {
         int tag = 0;
         char[] filePath = file.getAbsolutePath().toCharArray();
         for (int i = 0; i < filePath.length; i++) {
@@ -90,9 +89,23 @@ public class FileExplorer {
         return tag;
     }
 
+    private static void getFileDetails(File file) {
+        try {
+            FileReader fr = new FileReader(file);
+            char[] chars = new char[10];
+            int n;
+            while ((n = fr.read(chars)) != -1) {
+                System.out.print(chars.toString());
+            }
+            fr.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void main(String[] args) {
-        getChildFiles(new File(filePath), "");
-//        recurseLookUp(filePath);
+//        getChildFiles(new File(filePath), "");
+        recurseLookUp(filePath);
     }
 }
