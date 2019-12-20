@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="xmlbeans-bin-3.1.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.poi/xmlbeans/bin/xmlbeans-3.1.0/lib/resolver.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.xmlbeans/xmlbeans/2.6.0/29e80d2dd51f9dcdef8f9ffaee0d4dc1c9bbfc87/xmlbeans-2.6.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.xmlbeans/xmlbeans/3.0.1/50d94da791ab1e799a11d6f82410fd7d49f402ca/xmlbeans-3.0.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -4,8 +4,6 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.xssf.usermodel.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -40,27 +38,27 @@ public class ExcelWriter {
      * @param widthArr
      * @param dataList
      */
-    public static void doExport(HttpServletResponse response, HttpServletRequest request, String fileName, String[] nameArr,
-                                String[] titleArr, String[] alignArr, int[] widthArr, List dataList) {
-        try {
-            OutputStream os = response.getOutputStream();
-            response.reset();
-            String agent = request.getHeader("USER-AGENT");
-            if (agent != null && agent.indexOf("MSIE") != -1 || agent != null && agent.indexOf("Trident") != -1) {
-                // ie
-                String name = encode(fileName, "UTF8");
-                fileName = name;
-            } else if (agent != null && agent.indexOf("Mozilla") != -1) {
-                // fireFox, chrome
-                fileName = new String(fileName.getBytes("UTF8"), "iso-8859-1");
-            }
-            response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
-            response.setContentType("application/msexcel");
-//            doExport(os, dataMap);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void doExport(HttpServletResponse response, HttpServletRequest request, String fileName, String[] nameArr,
+//                                String[] titleArr, String[] alignArr, int[] widthArr, List dataList) {
+//        try {
+//            OutputStream os = response.getOutputStream();
+//            response.reset();
+//            String agent = request.getHeader("USER-AGENT");
+//            if (agent != null && agent.indexOf("MSIE") != -1 || agent != null && agent.indexOf("Trident") != -1) {
+//                // ie
+//                String name = encode(fileName, "UTF8");
+//                fileName = name;
+//            } else if (agent != null && agent.indexOf("Mozilla") != -1) {
+//                // fireFox, chrome
+//                fileName = new String(fileName.getBytes("UTF8"), "iso-8859-1");
+//            }
+//            response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
+//            response.setContentType("application/msexcel");
+////            doExport(os, dataMap);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     /**
      * 导出数据到Excel
