@@ -2,6 +2,10 @@ package lambda.validate;
 
 import org.junit.Test;
 
+import java.lang.reflect.Method;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
@@ -40,14 +44,25 @@ public class StreamValidate {
     }
 
     /*
-        Stream打印类的所有声明方法
+        Stream打印类的所有方法
      */
     @Test
     public void getAllMethods() {
         try {
-            Arrays.stream(Class.forName("java.io.File").getDeclaredMethods()).forEach(i -> System.out.println(i.getName()));
+            Arrays.stream(Class.forName("java.time.LocalDateTime").getMethods()).forEach(i -> System.out.println(i.getName()));
+            ZonedDateTime zonedDateTime = ZonedDateTime.now();
+            System.out.println(zonedDateTime);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+        public void getDeclareMethods() {
+            try {
+                Arrays.stream(Class.forName("java.time.ZonedDateTime").getDeclaredMethods()).map(Method::getName).distinct().forEach(System.out::println);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
     }
 }
