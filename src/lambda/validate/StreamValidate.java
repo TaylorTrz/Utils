@@ -49,7 +49,7 @@ public class StreamValidate {
     @Test
     public void getAllMethods() {
         try {
-            Arrays.stream(Class.forName("java.time.LocalDateTime").getMethods()).forEach(i -> System.out.println(i.getName()));
+            Arrays.stream(Class.forName("java.time.LocalDateTime").getMethods()).map(Method::getName).distinct().forEach(System.out::println);
             ZonedDateTime zonedDateTime = ZonedDateTime.now();
             System.out.println(zonedDateTime);
         } catch (Exception e) {
@@ -64,5 +64,14 @@ public class StreamValidate {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
+    }
+
+    @Test
+    public void getZoneIdMethods() {
+        try {
+            Arrays.stream(Class.forName("java.util.Objects").getDeclaredMethods()).map(Method::getName).distinct().forEach(System.out::println);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

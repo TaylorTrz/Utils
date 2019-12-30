@@ -10,6 +10,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Objects;
 import java.util.TimeZone;
 
 /**
@@ -49,7 +50,7 @@ public class TimeConverter {
      * @return formatted date string
      */
     public static String str2Str(String dateSequence) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CUSTOMED_PATTERN);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(STANDARD_PATTERN);
         LocalDateTime localDateTime = LocalDateTime.parse(dateSequence, formatter);
         return formatter.format(localDateTime);
     }
@@ -70,20 +71,28 @@ public class TimeConverter {
      * @return   Date
      */
     public static Date local2Date(LocalDateTime localDateTime) {
-        Date date = Date.from(localDateTime.atZone(ZoneId.of("UTC")).toInstant());
-        return date;
+        return Date.from(localDateTime.atZone(ZoneId.of("UTC")).toInstant());
     }
 
+    /**
+     * convert time zone from UTC to CST
+     * @param UTCLocal
+     * @return  CSTLocal
+     */
     public static LocalDateTime UTC2CST(LocalDateTime UTCLocal) {
         return date2Local(local2Date(UTCLocal));
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(STANDARD_PATTERN);
+//        return UTCLocal.plusHours(8);
     }
 
-    // convert time zone test
+
+
+    // time zone test
     @Test
     public void UTC2CSTTest() {
-        System.out.println(local2Str(UTC2CST(LocalDateTime.now())));
+//        System.out.println(local2Str(UTC2CST(LocalDateTime.now())));
+        System.out.println(UTC2CST(LocalDateTime.now()));
     }
-
 
     @Test
     public void CST2UTCTest() {
@@ -103,5 +112,14 @@ public class TimeConverter {
     @Test
     public void getCurrentTest() {
         System.out.println(getCurrent());
+        if (this instanceof TimeConverter) {
+            System.out.println("true");
+        }
     }
+
+    @Test
+    public void str2StrTest() {
+        System.out.println(str2Str(String.valueOf(System.currentTimeMillis())));
+    }
+
 }
