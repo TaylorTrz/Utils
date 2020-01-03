@@ -82,7 +82,20 @@ public enum Task {
     };
 
 
-    Task(Integer id, String type) {
+    private int id;
+    private String type;
+
+    Task(int id, String type) {
+        this.id = id;
+        this.type = type;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getType() {
+        return this.type;
     }
 
     public abstract void action();

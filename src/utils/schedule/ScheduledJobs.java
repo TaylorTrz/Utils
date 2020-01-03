@@ -8,6 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
+import static utils.schedule.Task.TIMER;
+
 /**
  * 定时任务
  *
@@ -22,19 +24,23 @@ public class ScheduledJobs {
     public void printEvery10sec(Task task) {
         switch (task) {
             case TIMER: {
-                Task.TIMER.action();
+                TIMER.action();
+                System.out.println(TIMER.getId() + TIMER.getType());
                 break;
             }
             case SCHEDULED: {
                 Task.SCHEDULED.action();
+                System.out.println(TIMER.getId() + TIMER.getType());
                 break;
             }
             case QUARTZ: {
                 Task.QUARTZ.action();
+                System.out.println(TIMER.getId() + TIMER.getType());
                 break;
             }
             case SPRING:
                 Task.SPRING.action();
+                System.out.println(TIMER.getId() + TIMER.getType());
         }
     }
 
