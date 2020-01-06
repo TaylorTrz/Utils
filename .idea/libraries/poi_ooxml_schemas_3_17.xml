@@ -2,6 +2,7 @@
   <library name="poi-ooxml-schemas-3.17">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-ooxml-schemas/3.17/890114bfa82f5b6380ea0e9b0bf49b0af797b414/poi-ooxml-schemas-3.17.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-ooxml-schemas/4.0.0/125f9ccd2cf652fa4169b1c30e9023362e23324f/poi-ooxml-schemas-4.0.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -2,6 +2,7 @@
   <library name="commons-collections4-4.1">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-collections4/4.1/a4cf4688fe1c7e3a63aa636cc96d013af537768e/commons-collections4-4.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-collections4/4.2/54ebea0a5b653d3c680131e73fe807bb8f78c4ed/commons-collections4-4.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

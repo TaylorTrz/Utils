@@ -1,8 +1,5 @@
 package leetcode.LongestSubstringWithoutRepeatingCharacters;
 
-
-import com.mysql.jdbc.StringUtils;
-
 import java.util.*;
 
 /**
@@ -24,7 +21,7 @@ public class Solution {
      */
 
     public static int lengthOfLongestSubstring(String s) {
-        if (StringUtils.isNullOrEmpty(s))
+        if (s == null || s.isEmpty())
             return 0;
 
         int len = 0;
