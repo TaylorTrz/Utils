@@ -8,19 +8,14 @@ package IO.utility;
 
 import org.junit.Test;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 //import java.io.*;
 import java.lang.*;
 import java.lang.Runtime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.RandomAccessFile;
 
 public class Buffer {
     public static final String FILE_PATH_TEST = "tmp";
@@ -39,9 +34,95 @@ public class Buffer {
         }
     }
 
+
+    // ------------------------------
+
+    /**
+     * Runoob
+     */
+    //-------------------------------
+
+    // 读取控制台的输入
+    public static void bufferedReaderRead() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        char c;
+        do {
+            c = (char) br.read();
+            System.out.println(c);
+        } while (c != 'q');
+
+        String str;
+        do {
+            str = br.readLine();
+            System.out.println(str);
+        } while (!str.equals("end"));
+    }
+
+    // 控制台的输出
+    @Test
+    public void printStreamWrite() throws IOException {
+        PrintStream ps = new PrintStream(System.out);
+        ps.print("A");
+        ps.write('B');
+    }
+
+
+    // 文件读写（二进制）
+    @Test
+    public void fileStreamTest() {
+        try {
+            byte[] B = {11, 22, 33, 44};
+            OutputStream os = new FileOutputStream("tmp/new.txt");
+            for (int x = 0; x < B.length; x++) {
+                os.write(B[x]);
+            }
+            os.close();
+
+            InputStream is = new FileInputStream("tmp/new.txt");
+            int size = is.available();
+            for (int i = 0; i < size; i++) {
+                System.out.println((char) is.read() + " ");
+            }
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 文件读写(中文输入)
+    @Test
+    public void fileStream() {
+        try {
+            FileOutputStream fos = new FileOutputStream("tmp/new.txt");
+            OutputStreamWriter writer = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+            writer.append("中文输入");
+            writer.append("\r\n");
+            writer.append("English");
+            writer.close();
+            fos.close();
+
+            FileInputStream fis = new FileInputStream("tmp/new.txt");
+            InputStreamReader reader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+            StringBuffer buffer = new StringBuffer();
+            while (reader.ready()) {
+                buffer.append((char) reader.read());
+                System.out.println(buffer);
+            }
+            reader.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // -------------------------------------
+
+    /**
+     * shiyanlou
+     */
+    // -------------------------------------
     public static void main(String[] args) {
-
-
         File f1 = new File(FILE_PATH_TEST);
         File f2 = new File(f1 + "/new.txt");
         File f3 = new File(f1, "test190713.txt");
@@ -156,7 +237,7 @@ public class Buffer {
         随机流
          */
         System.out.println("===========随机流==============");
-        try{
+        try {
             File f5 = new File("tmp", "randomAccessFile.txt");
             f5.createNewFile();
             RandomAccessFile raf = new RandomAccessFile(f5, "rw");
@@ -165,16 +246,15 @@ public class Buffer {
             raf.seek(0);
             raf.writeChars(s);
             char[] recordChar = new char[18];
-            s.getChars(0,18,recordChar,0);
-            for (int i = recordChar.length - 1; i >= 0; i--){
-                raf.seek(i*2);
+            s.getChars(0, 18, recordChar, 0);
+            for (int i = recordChar.length - 1; i >= 0; i--) {
+                raf.seek(i * 2);
                 char c = raf.readChar();
                 System.out.print(c);
             }
 
             raf.close();
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             System.out.println(e.toString());
         }
 
@@ -183,22 +263,62 @@ public class Buffer {
         补充：Scanner对象解析文件
          */
         System.out.println("===========Scanner对象解析==============");
-        try{
+        try {
             Scanner sc = new Scanner(f2);
-            while(sc.hasNext()){
-                try{
+            while (sc.hasNext()) {
+                try {
                     String s = sc.next();
                     System.out.println(s);
-                }
-                catch(Exception eSmall){
+                } catch (Exception eSmall) {
                     eSmall.printStackTrace();
-                }
-                finally{
+                } finally {
 
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch(IOException e){
+    }
+
+    // ---------------------
+    /**
+     * 向日葵sunlogin remote control monitor
+     *
+     * @author taoruizhe
+     * @version 2020/01/07
+     */
+    // ---------------------
+    private static final String LOG = "H:\\ForOffice\\sunflower\\SunloginClient\\log";
+    private Map<String, Long> logMap = new HashMap<>();
+
+    public void monitor() throws IOException {
+        File log = new File(LOG);
+        if (!log.isDirectory() && log.length() <= 0) {
+            return;
+        }
+
+        File[] children = log.listFiles();
+        for (File child : children) {
+            this.recordLatest(child);
+        }
+    }
+
+    // 记录发生远程控制的时间
+    private void recordLatest(File child) {
+        if (child.getName().contains("desktop.agent")) {
+            logMap.put(child.getName(), child.lastModified());
+        }
+    }
+
+    @Test
+    public void monitorTest() {
+        try {
+            monitor();
+            Iterator<Map.Entry<String, Long>> entryIterator = logMap.entrySet().iterator();
+            while (entryIterator.hasNext()) {
+                System.out.println(entryIterator.next().getKey() + new Date(entryIterator.next().getValue()).toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDateTime());
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
