@@ -11,6 +11,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author taoruizhe
@@ -25,7 +29,8 @@ public class SunMonitor {
     private static final String LOG = "H:\\ForOffice\\sunflower\\SunloginClient\\log";
     private Map<String, Long> logMap = new HashMap<>();
 
-    public void monitor() throws IOException {
+
+    public void monitor() {
         File log = new File(LOG);
         if (!log.isDirectory() && log.length() <= 0) {
             return;
@@ -34,6 +39,17 @@ public class SunMonitor {
         File[] children = log.listFiles();
         for (File child : children) {
             this.recordLatest(child);
+        }
+
+        for (Map.Entry<String, Long> entry: logMap.entrySet()
+        ) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String date = new Date(entry.getValue())
+                    .toInstant()
+                    .atZone(ZoneId.of(ZoneId.SHORT_IDS.get("CTT")))
+                    .toLocalDateTime()
+                    .format(formatter);
+            System.out.println("文件名：" + entry.getKey() + " + 时间：" + date);
         }
     }
 
@@ -44,24 +60,20 @@ public class SunMonitor {
         }
     }
 
-
-    @Test
-    public void monitorTest() {
+    public void timer() {
+        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(100);
         try {
-            monitor();
-            for (Map.Entry<String, Long> entry: logMap.entrySet()
-            ) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                String date = new Date(entry.getValue())
-                        .toInstant()
-                        .atZone(ZoneId.of(ZoneId.SHORT_IDS.get("CTT")))
-                        .toLocalDateTime()
-                        .format(formatter);
-                System.out.println(entry.getKey() + " ：： " + date);
-            }
-
-        } catch (Exception e) {
+            Runnable runnable = new Thread(() -> {this.monitor();});
+            executorService.scheduleAtFixedRate(runnable, 0, 10, TimeUnit.SECONDS);
+        } catch(Exception e ) {
             e.printStackTrace();
         }
+
+    }
+
+
+    public static void main(String[] args) {
+        SunMonitor sunMonitor = new SunMonitor();
+        sunMonitor.timer();
     }
 }
