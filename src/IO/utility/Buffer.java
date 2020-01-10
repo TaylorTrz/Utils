@@ -280,46 +280,5 @@ public class Buffer {
         }
     }
 
-    // ---------------------
-    /**
-     * 向日葵sunlogin remote control monitor
-     *
-     * @author taoruizhe
-     * @version 2020/01/07
-     */
-    // ---------------------
-    private static final String LOG = "H:\\ForOffice\\sunflower\\SunloginClient\\log";
-    private Map<String, Long> logMap = new HashMap<>();
 
-    public void monitor() throws IOException {
-        File log = new File(LOG);
-        if (!log.isDirectory() && log.length() <= 0) {
-            return;
-        }
-
-        File[] children = log.listFiles();
-        for (File child : children) {
-            this.recordLatest(child);
-        }
-    }
-
-    // 记录发生远程控制的时间
-    private void recordLatest(File child) {
-        if (child.getName().contains("desktop.agent")) {
-            logMap.put(child.getName(), child.lastModified());
-        }
-    }
-
-    @Test
-    public void monitorTest() {
-        try {
-            monitor();
-            Iterator<Map.Entry<String, Long>> entryIterator = logMap.entrySet().iterator();
-            while (entryIterator.hasNext()) {
-                System.out.println(entryIterator.next().getKey() + new Date(entryIterator.next().getValue()).toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDateTime());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
