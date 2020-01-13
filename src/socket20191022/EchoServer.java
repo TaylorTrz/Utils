@@ -23,7 +23,7 @@ public class EchoServer{
             String userIn;
             while ((userIn = in.readLine()) != null){
                 System.out.println("收到客户端消息：" + userIn);
-                System.out.println(userIn);
+                out.println("消息已收到，请继续发送...");
             }
         }
         catch(IOException e){
