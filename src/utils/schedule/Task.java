@@ -30,7 +30,7 @@ public enum Task {
                 }
             }, 1000, 2000);
 
-            // 开始时间date，周期2s
+//             开始时间date，周期2s
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
             try {
                 Date date = dateFormat.parse("2018-07-11 12:00:00.000");
@@ -55,7 +55,7 @@ public enum Task {
             scheduledExecutorService.schedule(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("scheduled executor service is running");
+                    System.out.println("scheduled executor service run once");
                 }
             }, 1, TimeUnit.SECONDS);
 

@@ -1,14 +1,19 @@
 package leetcode.validParenthese;
 
 
+import java.util.Stack;
+
 /**
- * @detail 有效括号
- *          思考：对于一个可行的字符串，如果成立那么必须是偶数个字符，然后从中间开始是完全对称的。
- *
  * @author taoruizhe
+ * @detail 有效括号
+ * 警示：对于科班而言，这题是非常简单的。这是因为我仅仅是对于语法结构有了解，而对于算法结构是个外行。
+ * 思路：栈，三种括号类型。如果是开括号，则放入栈，如果是闭括号，与栈顶元素进行对比，如果对应则弹出，否则无效。
  * @date 2020/01/23
  */
 public class Solution {
+    private static final Stack<Character> stack = new Stack<>();
+    private static final String leftParentheses = "([{";
+
     public boolean isValid(String s) {
         if (null == s) {
             return false;
@@ -18,16 +23,32 @@ public class Solution {
         }
 
         int i = 0;
-        while(true) {
-            if (s.charAt(i) != s.charAt(s.length() - 1 - i) || i > s.length() - 1 - i) {
-                break;
+        for (; i < s.length(); i++) {
+            if (leftParentheses.contains(String.valueOf(s.charAt(i)))) {
+                stack.push(s.charAt(i));
+            } else {
+                char c = s.charAt(i);
+                Character pop = stack.pop();
+                if (c == ')') {
+                    if (pop == null || !pop.equals('('))
+                        break;
+                }
+                if (c == ']') {
+                    if (pop == null || !pop.equals('['))
+                        break;
+                }
+                if (c == '}') {
+                    if (pop == null || !pop.equals('{'))
+                        break;
+                }
             }
-            i++;
         }
 
-        if (i > s.length() - 1 - i) {
-            return true;
-        }
-        return false;
+        return i == s.length() && stack.empty();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Solution().isValid("{[]}"));
     }
 }
+

@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
-import static utils.schedule.Task.TIMER;
+import static utils.schedule.Task.*;
 
 /**
  * 定时任务
@@ -29,35 +29,33 @@ public class ScheduledJobs {
                 break;
             }
             case SCHEDULED: {
-                Task.SCHEDULED.action();
-                System.out.println(TIMER.getId() + TIMER.getType());
+                SCHEDULED.action();
+                System.out.println(SCHEDULED.getId() + SCHEDULED.getType());
                 break;
             }
             case QUARTZ: {
                 Task.QUARTZ.action();
-                System.out.println(TIMER.getId() + TIMER.getType());
+                System.out.println(QUARTZ.getId() + QUARTZ.getType());
                 break;
             }
             case SPRING:
                 Task.SPRING.action();
-                System.out.println(TIMER.getId() + TIMER.getType());
+                System.out.println(SPRING.getId() + SPRING.getType());
         }
     }
 
-
-    @Test
-    public void test() {
-        printEvery10sec(Task.SCHEDULED);
+    public static void main(String[] args) {
+        new ScheduledJobs().printEvery10sec(TIMER);
     }
 
-    @Test
-    public void listMethods() {
-        try {
-            Arrays.stream(Class.forName("java.util.concurrent.ScheduledExecutorService").getDeclaredMethods()).distinct().forEach(System.out::println);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    @Test
+//    public void listMethods() {
+//        try {
+//            Arrays.stream(Class.forName("java.util.concurrent.ScheduledExecutorService").getDeclaredMethods()).distinct().forEach(System.out::println);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
 }

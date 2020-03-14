@@ -9,10 +9,11 @@ package utils.progress.bar;
 
 public class ProgressBar extends Thread{
     private static int elapsed = 0;
+    private static final String mode = "\b\b\b\b\b\b\b\b\b\b\b\b\b";
 
     public static synchronized void print() {
         StringBuffer str1 = new StringBuffer("Starting:");
-        StringBuffer str2 = new StringBuffer("\b\b\b\b\b\b\b\b\b\b\b\b\b");
+        StringBuffer str2 = new StringBuffer(mode);
         for (int i = 0; i < 100; i++) {
             str1.append("-");
             str2.append("\b");
