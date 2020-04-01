@@ -11,12 +11,9 @@ import org.apache.poi.hpsf.Decimal;
  */
 public class DecimalConverter {
 
-    /**
-     * convert decimal to binary
-     *
-     * @param decimal
-     * @return
-     */
+    //-----------------------------
+    // convert decimal to binary
+    //------------------------------
     public String dec2Bin(long decimal) {
         StringBuilder stb = new StringBuilder();
         while (decimal != 0) {
@@ -38,12 +35,9 @@ public class DecimalConverter {
     }
 
 
-    /**
-     * decimal to octal
-     *
-     * @param dec
-     * @return
-     */
+    //-----------------------------
+    // convert decimal to octal
+    //------------------------------
     public String dec2Oct(long dec) {
         StringBuilder oct = new StringBuilder();
         while (dec != 0) {
@@ -65,12 +59,9 @@ public class DecimalConverter {
     }
 
 
-    /**
-     * decimal to hexadecimal
-     *
-     * @param dec
-     * @return
-     */
+    //-----------------------------
+    // convert decimal to hexadecimal
+    //------------------------------
     public String dec2Hex(long dec) {
         StringBuilder hex = new StringBuilder();
         while (dec != 0) {
