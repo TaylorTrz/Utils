@@ -13,6 +13,7 @@ public class DecimalConverter {
 
     //-----------------------------
     // convert decimal to binary
+    // 十进制转换二进制
     //------------------------------
     public String dec2Bin(long decimal) {
         StringBuilder stb = new StringBuilder();
@@ -37,6 +38,7 @@ public class DecimalConverter {
 
     //-----------------------------
     // convert decimal to octal
+    // 十进制转换八进制
     //------------------------------
     public String dec2Oct(long dec) {
         StringBuilder oct = new StringBuilder();
@@ -61,6 +63,7 @@ public class DecimalConverter {
 
     //-----------------------------
     // convert decimal to hexadecimal
+    // 十进制转换十六进制
     //------------------------------
     public String dec2Hex(long dec) {
         StringBuilder hex = new StringBuilder();
