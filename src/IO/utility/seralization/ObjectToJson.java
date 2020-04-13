@@ -2,6 +2,7 @@ package IO.utility.seralization;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -15,7 +16,7 @@ public class ObjectToJson {
     public void  objectToJson() {
         try {
             Employee employee = new Employee();
-            employee.name = "Taylor";
+//            employee.name = "Taylor";
             employee.address = "Backer Street 101A";
             employee.SSN = 12306;
             employee.number = 157;
@@ -40,7 +41,8 @@ public class ObjectToJson {
     public void jsonToObject() throws ParseException, IOException {
         String jsonString = "{\"name\":\"Taylor\",\"address\":\"Backer Street 101A\",\"number\":157,\"birthday\":1573660800000}";
         ObjectMapper mapper = new ObjectMapper();
-        Employee employee = mapper.readValue(jsonString, Employee.class);
+        Employee employee = mapper.readValue(new File("tmp/employee.ser"), Employee.class);
+//        Employee employee = mapper.readValue(jsonString, Employee.class);
         System.out.println(employee.birthday);
     }
 
@@ -54,4 +56,5 @@ public class ObjectToJson {
         String[] newArray = mapper.readValue(jsonString, String[].class);
         System.out.println("serializing back to Object: " + Arrays.toString(newArray));
     }
+
 }
