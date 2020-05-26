@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KeepAlive:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/KeepAlive_jar</output-path>
+    <root id="archive" name="FilePractise.jar">
+      <element id="module-output" name="FilePractise" />
+      <element id="extracted-dir" path="H:/ForProfession/SpingToolSuite/sts-bundle/sts-3.9.9.RELEASE/plugins/com.fasterxml.jackson.core.jackson-annotations_2.9.2.v20180207-1730.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/ForProfession/SpingToolSuite/sts-bundle/sts-3.9.9.RELEASE/plugins/com.fasterxml.jackson.core.jackson-core_2.9.2.v20180207-1730.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="H:/ForProfession/SpingToolSuite/sts-bundle/sts-3.9.9.RELEASE/plugins/com.fasterxml.jackson.core.jackson-databind_2.9.2.v20180207-1730.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" path-in-jar="/" />
+      <element id="library" level="project" name="javax.servlet-api-3.1.0" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/4.0.0/7ddb9b983ed682c93a986e8bb596d5935b13086c/poi-4.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.xmlbeans/xmlbeans/3.0.1/50d94da791ab1e799a11d6f82410fd7d49f402ca/xmlbeans-3.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-ooxml/4.0.0/f3fa9c2bd64eb3ec15378de960a07d077ae5b26d/poi-ooxml-4.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-ooxml-schemas/4.0.0/125f9ccd2cf652fa4169b1c30e9023362e23324f/poi-ooxml-schemas-4.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-collections4/4.2/54ebea0a5b653d3c680131e73fe807bb8f78c4ed/commons-collections4-4.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

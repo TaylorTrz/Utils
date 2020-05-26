@@ -24,5 +24,7 @@
     <orderEntry type="library" name="poi-ooxml-schemas-3.17" level="project" />
     <orderEntry type="library" name="xmlbeans-bin-3.1.0" level="project" />
     <orderEntry type="library" name="commons-collections4-4.1" level="project" />
+    <orderEntry type="library" name="jna-5.5.0" level="project" />
+    <orderEntry type="library" name="jna-platform-5.5.0" level="project" />
   </component>
 </module>
