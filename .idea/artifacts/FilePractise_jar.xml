@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact name="FilePractise:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FilePractise_jar</output-path>
+    <root id="root">
+      <element id="archive" name="FilePractise.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/resource/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="FilePractise" />
+      </element>
+      <element id="library" level="project" name="poi-3.17" />
+      <element id="library" level="project" name="jna-5.5.0" />
+      <element id="library" level="project" name="jna-platform-5.5.0" />
+      <element id="library" level="project" name="commons-collections4-4.1" />
+      <element id="library" level="project" name="poi-ooxml-schemas-3.17" />
+      <element id="library" level="project" name="poi-ooxml-3.17" />
+      <element id="library" level="project" name="javax.servlet-api-3.1.0" />
+      <element id="library" level="project" name="com.fasterxml.jackson.core.jackson-annotations_2.9.2.v20180207-1730" />
+      <element id="library" level="module" name="JUnit4" module-name="FilePractise" />
+      <element id="library" level="project" name="xmlbeans-bin-3.1.0" />
+    </root>
+  </artifact>
+</component>
