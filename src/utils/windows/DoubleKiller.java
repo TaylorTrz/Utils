@@ -1,12 +1,15 @@
 package utils.windows;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.*;
 
 /**
+ * <p>DoubleKiller-重复文件删除工具</p>
+ *
  * 功能：删除重复文件
  * 1. 显示待删除文件的位置与超链接
  * 2. 显示待删除文件的总个数与总占用空间
@@ -17,6 +20,8 @@ import java.util.Map;
  */
 public class DoubleKiller {
     private static final File ROOT_FILE = new File(File.listRoots()[0].toString());
+
+    private static final File LOG_FILE = new File("/tmp/Duplicated_Files");
 
     private Map<String, List<File>> duplicateFiles = new HashMap<>();
 
@@ -36,6 +41,7 @@ public class DoubleKiller {
                 System.out.print(mode.toString() + "[" + progress.toString() + "]");
             }
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             e.printStackTrace();
         }
 
@@ -43,18 +49,24 @@ public class DoubleKiller {
     }
 
 
-    // ==============================================================
+    /** ==============================================================
+    *   主要逻辑：
+    /** ==============================================================
+
+
     /**
      * 1. 以空间换时间：大内存直接遍历
      *
      */
-
     public void searchDuplicated(File parent) throws Exception {
         if (parent == null || parent.listFiles() == null) {
             return;
         }
         // 只对文件夹进行操作
         File[] children = parent.listFiles();
+        if (children == null) {
+            throw new NullPointerException();
+        }
         for (File child : children) {
             // 如果是目录，则继续搜索
             if (child.isDirectory()) {
@@ -83,20 +95,32 @@ public class DoubleKiller {
             }
         }
     }
-    // ======================================================================
 
 
     /**
      * 2. 以时间换空间：分治法对文件切分
-     *
+     * ------------------------------------
      *
      */
 
 
+
     public static void main(String[] args) {
         try {
-            new DoubleKiller().progressDialog();
-            new DoubleKiller().showDuplicated(ROOT_FILE);
+            DoubleKiller killer = new DoubleKiller();
+            killer.progressDialog();
+            long begin = System.currentTimeMillis();
+            System.out.println(LocalDateTime.now().toString());
+            killer.showDuplicated(ROOT_FILE);
+            long end = System.currentTimeMillis();
+            System.out.println("the elapsed time: " + (end - begin) / 1000 + " seconds");
+
+            if (LOG_FILE.mkdir()) {
+                System.out.println("Create log file......");
+            } else {
+                System.out.println("Log file already exists, continue......");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
