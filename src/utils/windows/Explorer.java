@@ -1,13 +1,14 @@
 package utils.windows;
 
+import com.fasterxml.jackson.core.json.UTF8DataInputJsonParser;
 import com.sun.istack.NotNull;
 
 import java.io.*;
 import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -136,9 +137,16 @@ public class Explorer {
     }
 
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 //        recurseLookUp(filePath);
+//        showNIO();
+//        showFileSystem();
+//        walkDir();
+        searchFile();
+    }
 
+
+    public static void showNIO() throws IOException{
         // 当前使用的系统
         System.out.println(System.getProperty("os.name"));
         // java.nio.Paths与Path的使用
@@ -173,12 +181,88 @@ public class Explorer {
         Files.write(path, bytes);
         System.out.println("当前文件行数：" + Files.size(path));
         // 对字节数据进行读取
-        Files.readAllLines(path).stream().skip(998).map(i -> i).forEach(System.out::print);
+        byte[] values = Files.readAllBytes(path);
+
         System.out.println("当前文件行数：" + Files.size(path));
         // 直接对“小文件”进行读写
-        List<String> lines = Files.readAllLines(path);
-        lines.stream().filter(line -> line.startsWith("E")).map(line -> line + "直接读写").forEach(System.out::println);
+//        List<String> lines = Files.readAllLines(path);
+//        lines.stream().filter(line -> line.startsWith("E")).map(line -> line + "直接读写").forEach(System.out::println);
+
+        // java.nio.file.Files 包括了所有nio中对于文件操作的功能
+        Files.exists(path);
+        Files.isDirectory(path);
+        Files.isHidden(path);
+        Files.size(path);
+        System.out.println(Files.getFileStore(path).name());
+        Files.getLastModifiedTime(path);
+        System.out.println(Files.probeContentType(path));
+        // 链接文件
+        if(Files.isSymbolicLink(path)) {
+            Files.isSymbolicLink(path);
+        }
+    }
 
 
+    public static void showFileSystem() {
+        System.getProperty("os.name");
+        FileSystem fs = FileSystems.getDefault();
+        for (FileStore store : fs.getFileStores()) {
+            System.out.println(store.name());
+        }
+        for (Path path : fs.getRootDirectories()) {
+            System.out.println(path.toUri());
+        }
+        fs.isOpen();
+    }
+
+
+    public static void walkDir() throws IOException{
+        Path path = Paths.get("D:\\ideaProject\\daily_improvement\\FilePractise\\src");
+        System.out.println(path.toUri());
+        Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
+            @Override
+            public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) throws IOException {
+                Files.readAllLines(path).forEach(System.out::println);
+                return FileVisitResult.CONTINUE;
+            }
+
+            @Override
+            public FileVisitResult postVisitDirectory(Path path, IOException exception) throws IOException {
+                System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-" + Files.isDirectory(path) + "+-+-+-+-+-+-+-+-+-+-+-+-");
+                return FileVisitResult.CONTINUE;
+            }
+        });
+    }
+
+
+    public static void searchFile() throws  IOException{
+        Path path = Paths.get("D");
+        PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.*");
+        Files.walk(path)
+                .filter(new Predicate<Path>() {
+                    @Override
+                    public boolean test(Path path) {
+                        return matcher.matches(path);
+                    }
+                })
+                .forEach(System.out::println);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
