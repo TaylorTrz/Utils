@@ -236,8 +236,9 @@ public class Explorer {
 
 
     public static void searchFile() throws  IOException{
-        Path path = Paths.get("D");
-        PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.*");
+        Path path = Paths.get("src");
+        System.out.println("--------->Search all java files in " + path.toUri() + "<---------");
+        PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.java");
         Files.walk(path)
                 .filter(new Predicate<Path>() {
                     @Override
