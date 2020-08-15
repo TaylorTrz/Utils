@@ -128,8 +128,10 @@ public class RunoobTest {
     public static final String REGEX_PHONE_NUMBER = "^(15[0-9]|13\\d)\\d{8}$";
     // IP地址
     public static final String REGEX_IP_ADDRESS = "(?:(1?\\d?\\d|2[^5]\\d|25[0-5])\\.){3}(1?\\d?\\d|2[^5]\\d|25[0-5])";
+    // 密码
+    public static final String PASSWD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[\\w!\"$%()*+,-./:;<=>?@[]^_`{|}~]]{8,32}$";
 
-    public static void main(String[] args) {
+    public static void main7(String[] args) {
         String regex = ".*\\\\.*boy$";
         String regex1 = "\\\\*";
         String input = "tom is a \n key!007 a4fjk-abs8-efdc-keys (good) \\ boy";
@@ -138,6 +140,7 @@ public class RunoobTest {
         try {
             InetAddress inetAddress = InetAddress.getByName("www.baidu.com");
             String ip = inetAddress.toString().split("/")[1];
+            System.out.println(inetAddress.toString());
             String localHostname = InetAddress.getLocalHost().toString();
             Pattern pattern = Pattern.compile(REGEX_IP_ADDRESS);
             Matcher matcher = pattern.matcher(localHostname);
@@ -147,8 +150,16 @@ public class RunoobTest {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
+    }
 
 
+    public static void main(String[] args) {
+        String input1 = "tianyaT7(_-djfk";
+        pattern = Pattern.compile(PASSWD_REGEX);
+        Matcher matcher = pattern.matcher(input1);
+        if (matcher.matches()) {
+            System.out.println(input1);
+        }
     }
 
 
