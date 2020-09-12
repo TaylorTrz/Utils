@@ -1,4 +1,4 @@
-package socket20191022;
+package socket;
 
 import java.io.BufferedReader;
 import java.io.IOException;

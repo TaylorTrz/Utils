@@ -1,4 +1,4 @@
-package socket20191022;
+package socket;
 
 import java.io.*;
 import java.net.*;
@@ -8,7 +8,7 @@ public class TestClient {
     public static void main(String[] args) {
         try {
             String hosts = InetAddress.getLocalHost().getHostAddress();
-            InetAddress baidu = InetAddress.getByName("www.baidu.com");
+            InetAddress baidu = InetAddress.getByName("localhost");
             String ip = baidu.toString().split("/")[1];
             InetAddress address = InetAddress.getByName(ip);
             System.out.println(baidu.toString());

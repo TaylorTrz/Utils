@@ -129,7 +129,7 @@ public class RunoobTest {
     // IP地址
     public static final String REGEX_IP_ADDRESS = "(?:(1?\\d?\\d|2[^5]\\d|25[0-5])\\.){3}(1?\\d?\\d|2[^5]\\d|25[0-5])";
     // 密码
-    public static final String PASSWD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[\\w!\"$%()*+,-./:;<=>?@[]^_`{|}~]]{8,32}$";
+    public static final String PASSWD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[\\w!\"$%()*+,-./:;<=>?@\\[\\]^_`{|}~]{8,32}$";
 
     public static void main7(String[] args) {
         String regex = ".*\\\\.*boy$";
@@ -154,7 +154,7 @@ public class RunoobTest {
 
 
     public static void main(String[] args) {
-        String input1 = "tianyaT7(_-djfk";
+        String input1 = "Lc13yfwpW()[]{}%$*?@|~-+.\"";
         pattern = Pattern.compile(PASSWD_REGEX);
         Matcher matcher = pattern.matcher(input1);
         if (matcher.matches()) {
