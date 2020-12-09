@@ -26,5 +26,8 @@
     <orderEntry type="library" name="commons-collections4-4.1" level="project" />
     <orderEntry type="library" name="jna-5.5.0" level="project" />
     <orderEntry type="library" name="jna-platform-5.5.0" level="project" />
+    <orderEntry type="library" name="httpclient-4.5.6" level="project" />
+    <orderEntry type="library" name="httpcore-4.4.10" level="project" />
+    <orderEntry type="library" name="commons-logging-1.2" level="project" />
   </component>
 </module>
