@@ -22,11 +22,9 @@ public class HttpUtil {
 
 
     public static void main(String[] args) {
-        // 模拟多用户同时点击列表接口，测试列表接口的并发能力
+        // 模拟多用户同时点击列表接口，测试列表接口的 并发能力
         for (int i = 0; i < 1000; i++) {
-            new Thread(() -> {
-               new HttpUtil().get("");
-            }).start();
+            new Thread(() -> new HttpUtil().get("")).start();
         }
     }
 
