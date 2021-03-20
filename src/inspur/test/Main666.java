@@ -1,4 +1,5 @@
 package inspur.test;
+
 import java.math.BigInteger;
 import java.util.Scanner;
 
@@ -15,12 +16,12 @@ public class Main666 {
                 bigInteger = bigInteger.multiply(mul);
             }
             if (num > 0) {
-                bigInteger =  bigInteger.multiply(new BigInteger(""+num));
+                bigInteger = bigInteger.multiply(new BigInteger("" + num));
             }
         } else {
             return;
         }
-        System.out.println( bigInteger.toString());
+        System.out.println(bigInteger.toString());
 
     }
 }

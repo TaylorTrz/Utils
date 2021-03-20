@@ -51,15 +51,14 @@ public class RegularClass {
         // 计算两个日期之间的时间差
         long countTime1 = calendar.getTimeInMillis();
         long countTime2 = rebackTime.getTimeInMillis();
-        System.out.println("距离香港回归已经过去"+ (countTime1-countTime2)/(1000*60*60*24) + "天");
+        System.out.println("距离香港回归已经过去" + (countTime1 - countTime2) / (1000 * 60 * 60 * 24) + "天");
 
         // Scanner类解析字符串
         String conStr = str + "1234";
         Scanner sc = new Scanner(conStr);
-        try{
+        try {
             System.out.println(sc.nextInt());
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println(sc.next());
         }
 
@@ -81,8 +80,8 @@ public class RegularClass {
     }
 
     // ...表示任意多个参数
-    public static void apostrophe(int... intArrays){
-        for (int array:intArrays){
+    public static void apostrophe(int... intArrays) {
+        for (int array : intArrays) {
             System.out.println(array);
         }
     }

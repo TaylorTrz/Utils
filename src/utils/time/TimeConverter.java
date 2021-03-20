@@ -54,9 +54,8 @@ public class TimeConverter {
     }
 
     /**
-     *
      * @param date
-     * @return  LocalDateTime
+     * @return LocalDateTime
      */
     public static LocalDateTime date2Local(Date date) {
         LocalDateTime localDateTime = date.toInstant().atZone(ZoneId.of("Asia/Shanghai")).toLocalDateTime();
@@ -64,9 +63,8 @@ public class TimeConverter {
     }
 
     /**
-     *
      * @param localDateTime
-     * @return   Date
+     * @return Date
      */
     public static Date local2Date(LocalDateTime localDateTime) {
         return Date.from(localDateTime.atZone(ZoneId.of("UTC")).toInstant());
@@ -74,7 +72,8 @@ public class TimeConverter {
 
     /**
      * 改变时区   UTC(GMT)  CST(Asia/Shanghai)
-     * @param date  时间
+     *
+     * @param date    时间
      * @param UTC2CST 从UTC时间转换为CST时间，或正好相反
      * @return
      */
@@ -95,27 +94,28 @@ public class TimeConverter {
 
 
     /**
-     *
      * @param text
      * @param UTC2CST
      * @return
      */
-    public static String zoneConverter(String text, boolean UTC2CST) throws ParseException{
+    public static String zoneConverter(String text, boolean UTC2CST) throws ParseException {
         return zoneConverter(LocalDateTime.parse(text), UTC2CST);
     }
 
 
-    /** --------------------------------
+    /**
+     * --------------------------------
+     *
      * @detail LocalDateTime类的常用方法
      * @date 2020/01/06
      * ---------------------------------
      */
     public static LocalDateTime toInstance(int i, Map<String, Integer> timeMap) {
-        switch(i) {
-            case 0 :
+        switch (i) {
+            case 0:
                 return LocalDateTime.parse("");
             case 1:
-                return LocalDateTime.of(timeMap.get("year"),timeMap.get("month"), timeMap.get("day"), timeMap.get("hour"), timeMap.get("minute"), timeMap.get("second"));
+                return LocalDateTime.of(timeMap.get("year"), timeMap.get("month"), timeMap.get("day"), timeMap.get("hour"), timeMap.get("minute"), timeMap.get("second"));
             case 2:
                 System.out.println(LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE));
             default:
@@ -154,7 +154,7 @@ public class TimeConverter {
         System.out.println("CTT时间：" + CTT.toString());
 
         DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern(CUSTOMED_PATTERN)
-                                                        .withZone(ZoneId.of("UTC"));
+                .withZone(ZoneId.of("UTC"));
         DateTimeFormatter formatter2 = formatter1.withZone(ZoneId.of(ZoneId.SHORT_IDS.get("CTT")));
 
         System.out.println(formatter1.format(UTC));

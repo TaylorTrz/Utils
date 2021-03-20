@@ -6,24 +6,25 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ThreadBuilder {
-    private static ReentrantLock lock  = new ReentrantLock();
+    private static ReentrantLock lock = new ReentrantLock();
     private static Object sync = new Object();
 
     /**
      * @description Runnable
-     * @date  20191017
-      */
+     * @date 20191017
+     */
 
     public static class ThreadRunnable implements Runnable {
-        public  synchronized void run() {
+        public synchronized void run() {
 
             for (int i = 0; i < 20; i++) {
-                System.out.println(Thread.currentThread().getName() + " : " + this.getClass().getName() + " : " + i);}
+                System.out.println(Thread.currentThread().getName() + " : " + this.getClass().getName() + " : " + i);
+            }
         }
 
         // to synchronized run method
         public synchronized void dummyRun() {
-            for (int i = 0 ; i< 20; i++) {
+            for (int i = 0; i < 20; i++) {
                 System.out.println(Thread.currentThread().getName() + " : " + this.getClass().getName() + " : " + i);
             }
         }
@@ -31,28 +32,32 @@ public class ThreadBuilder {
 
     /**
      * @description Thread
-     * @date  20191017
+     * @date 20191017
      */
     public static class ThreadOriginal extends Thread {
         public void run() {
-            synchronized(sync){
-            for (int i = 0; i < 20; i++) {
-                System.out.println(Thread.currentThread().getName() + " : " + this.getClass().getName() + " : " + i);}
-        }}
+            synchronized (sync) {
+                for (int i = 0; i < 20; i++) {
+                    System.out.println(Thread.currentThread().getName() + " : " + this.getClass().getName() + " : " + i);
+                }
+            }
+        }
     }
 
     /**
      * @description Callable
-     * @date  20191017
+     * @date 20191017
      */
     public static class ThreadCallable implements Callable {
         public Integer call() {
-            synchronized(sync) {
-            for (int i = 0; i < 20; i++) {
-                System.out.println(Thread.currentThread().getName() + " : " + this.getClass().getName() + " : " + i);}
+            synchronized (sync) {
+                for (int i = 0; i < 20; i++) {
+                    System.out.println(Thread.currentThread().getName() + " : " + this.getClass().getName() + " : " + i);
+                }
 
-            return 0;
-        }}
+                return 0;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -76,8 +81,8 @@ public class ThreadBuilder {
 //        thread3.start();
 
         try {
-            System.out.println("******** " + futureTask.get() + " ********" );
-        } catch(InterruptedException e)  {
+            System.out.println("******** " + futureTask.get() + " ********");
+        } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException ee) {
             ee.printStackTrace();

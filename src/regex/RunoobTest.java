@@ -144,7 +144,7 @@ public class RunoobTest {
             String localHostname = InetAddress.getLocalHost().toString();
             Pattern pattern = Pattern.compile(REGEX_IP_ADDRESS);
             Matcher matcher = pattern.matcher(localHostname);
-            while(matcher.find()) {
+            while (matcher.find()) {
                 System.out.println("匹配结果： " + matcher.group());
             }
         } catch (UnknownHostException e) {

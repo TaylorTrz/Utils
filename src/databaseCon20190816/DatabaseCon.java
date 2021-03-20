@@ -8,12 +8,12 @@ import java.sql.*;
 import java.util.*;
 
 public class DatabaseCon {
-    public static void  main(String[] args){
+    public static void main(String[] args) {
         Connection conn = null;
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cps_test?serverTimezone=CST&useSSL=false","root","tianyat7");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cps_test?serverTimezone=CST&useSSL=false", "root", "tianyat7");
             System.out.println("连接数据库...");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -21,31 +21,28 @@ public class DatabaseCon {
             e.printStackTrace();
         }
 
-        try{
+        try {
             String handle = "SELECT * FROM tb_employee WHERE person like 'taoruizhe'";
             Statement stm = conn.createStatement();
-            ResultSet rs= stm.executeQuery(handle);
+            ResultSet rs = stm.executeQuery(handle);
 
-            while(rs.next()){
-                System.out.println("person"+rs.getString("person"));
-                System.out.println("grade"+rs.getString("gender"));
-                System.out.println("grade"+rs.getInt("grade"));
+            while (rs.next()) {
+                System.out.println("person" + rs.getString("person"));
+                System.out.println("grade" + rs.getString("gender"));
+                System.out.println("grade" + rs.getInt("grade"));
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        try{
-            if (conn!=null){
+        try {
+            if (conn != null) {
                 conn.close();
                 System.out.println("数据库关闭...farewell!");
             }
+        } catch (SQLException e) {
+            System.out.println(e + "\t 数据库关闭");
         }
-        catch(SQLException e){
-            System.out.println(e+"\t 数据库关闭");
-        }
-
 
 
     }

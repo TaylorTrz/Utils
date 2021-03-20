@@ -18,8 +18,8 @@ public class SemaphoreLock {
                     try {
                         semaphore.acquire();
                         System.out.println(Thread.currentThread().getName() + " Accessing: " + NO);
-                        TimeUnit.MILLISECONDS.sleep((long)(Math.random() * 10000));
-                    } catch(InterruptedException e) {
+                        TimeUnit.MILLISECONDS.sleep((long) (Math.random() * 10000));
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     } finally {
                         semaphore.release();

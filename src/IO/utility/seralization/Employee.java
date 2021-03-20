@@ -13,6 +13,7 @@ public class Employee implements Serializable {
     public transient int SSN;
     public int number;
     public Date birthday;
+
     public void mailCheck() {
         System.out.println("Mailing a check to" + name + " " + address);
     }

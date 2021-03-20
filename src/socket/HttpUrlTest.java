@@ -7,13 +7,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class HttpUrlTest{
-    public static void main(String[] args){
-        try{
+public class HttpUrlTest {
+    public static void main(String[] args) {
+        try {
             //设置url
             URL shiyanlou = new URL("https://www.shiyanlou.com");
             //打开连接
-            HttpURLConnection urlConnection = (HttpURLConnection)shiyanlou.openConnection();
+            HttpURLConnection urlConnection = (HttpURLConnection) shiyanlou.openConnection();
             //设置请求方法
             urlConnection.setRequestMethod("GET");
             //设置连接超时时间
@@ -27,8 +27,7 @@ public class HttpUrlTest{
             inputStream.close();
             bufferedReader.close();
             urlConnection.disconnect();
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

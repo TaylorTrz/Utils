@@ -12,7 +12,7 @@ public class SynchronizedLock {
         try {
             thread0.sleep(10000);
             new Thread(thread0).start();
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
 
@@ -39,12 +39,12 @@ public class SynchronizedLock {
         }
 
         // 测试在同对象实例中，调用不同的synchronized方法，看看能否调用成功
-        public  synchronized void dummyRun(int i) {
+        public synchronized void dummyRun(int i) {
 //            synchronized (lock) {
             while (i > 0) {
                 try {
                     Thread.sleep(500);
-                } catch(InterruptedException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 

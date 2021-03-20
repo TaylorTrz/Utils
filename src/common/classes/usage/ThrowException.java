@@ -6,7 +6,7 @@ package common.classes.usage;
 
 public class ThrowException {
 
-    public  String toString() {
+    public String toString() {
 
         // 验证getClass()与getName()方法
         String s = this.getClass().getName();
@@ -14,7 +14,7 @@ public class ThrowException {
         return (message != null) ? (s + ": " + message) : s;
     }
 
-    private  String getLocalizedMessage() {
+    private String getLocalizedMessage() {
         return "return getLocalizedMessage";
     }
 }

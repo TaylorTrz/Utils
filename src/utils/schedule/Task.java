@@ -11,7 +11,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
  * @link [枚举类型替换If/Switch结构] https://www.jdon.com/51857
  * @link [定时任务] https://www.cnblogs.com/zhangbin1989/p/9294114.html
  */
@@ -68,13 +67,13 @@ public enum Task {
             }, 1, 1, TimeUnit.SECONDS);
         }
     },
-    SPRING(3, "Spring"){
+    SPRING(3, "Spring") {
         @Override
         public void action() {
             System.out.println("------SpringTask---------");
         }
     },
-    QUARTZ(4, "Quartz"){
+    QUARTZ(4, "Quartz") {
         @Override
         public void action() {
             System.out.println("------Quartz---------");

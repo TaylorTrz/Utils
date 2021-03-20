@@ -8,7 +8,7 @@ import java.util.List;
  * @details wait/notify
  */
 
-public class Producer implements Runnable{
+public class Producer implements Runnable {
     private List<PCData> queue;
     private int length;
 
@@ -28,7 +28,7 @@ public class Producer implements Runnable{
                 System.out.println(Thread.currentThread().getName() + " produces: " + temp);
                 PCData data = new PCData();
                 data.set(temp);
-                synchronized(queue) {
+                synchronized (queue) {
                     if (queue.size() >= length) {
                         queue.notifyAll();
                         queue.wait();
@@ -37,7 +37,7 @@ public class Producer implements Runnable{
                 }
                 Thread.sleep(1000);
             }
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

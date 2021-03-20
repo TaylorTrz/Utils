@@ -15,7 +15,7 @@ public class ThreadPool {
     public static void main(String[] args) {
         for (int i = 0; i < 5; i++) {
             executorService.submit(()
-                    ->  {
+                    -> {
                 for (int j = 0; j < 10; j++) {
                     System.out.print(j + " ");
                 }
@@ -26,7 +26,8 @@ public class ThreadPool {
         Thread thread1 = new Thread(()
                 -> {
             for (int i = 0; i < 5; i++) {
-            arrayBlockingQueue.add(i);}
+                arrayBlockingQueue.add(i);
+            }
         });
         thread1.start();
         try {
@@ -35,7 +36,7 @@ public class ThreadPool {
             e.printStackTrace();
         }
 
-        new Thread( () -> {
+        new Thread(() -> {
             if (!arrayBlockingQueue.offer(11)) {
                 System.out.println("insert 11 failed");
             }

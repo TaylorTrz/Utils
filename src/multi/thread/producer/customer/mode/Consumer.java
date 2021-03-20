@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * notify/wait方法
  */
-public class Consumer implements Runnable{
+public class Consumer implements Runnable {
     private List<PCData> queue;
 
     public Consumer(List<PCData> queue) {
@@ -19,7 +19,7 @@ public class Consumer implements Runnable{
                 if (Thread.currentThread().isInterrupted())
                     break;
                 PCData data = null;
-                synchronized(queue) {
+                synchronized (queue) {
                     if (queue.size() == 0) {
                         queue.wait();
                         queue.notifyAll();
@@ -29,7 +29,7 @@ public class Consumer implements Runnable{
                 System.out.println(Thread.currentThread().getName() + " consumes: " + data.get() + " and result: " + (data.get() * data.get()));
                 Thread.sleep(1000);
             }
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

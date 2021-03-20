@@ -9,8 +9,8 @@ public class DeserializeDemo {
         Employee employee = null;
         try {
             FileInputStream fileIn = new FileInputStream("tmp/employee.ser");
-            ObjectInputStream in  = new ObjectInputStream(fileIn);
-            employee = (Employee)in.readObject();
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            employee = (Employee) in.readObject();
             in.close();
             fileIn.close();
         } catch (IOException | ClassNotFoundException io) {

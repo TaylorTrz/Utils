@@ -9,16 +9,17 @@ package switchCase20190827;
 import java.util.Scanner;
 
 public class SwitchCase {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        while (true){
+        while (true) {
             Day day = Day.MONDAY;
             System.out.print(day.ordinal());
             System.out.println(day.ordinal());
             int i = sc.nextInt();
-            switch (i){
-                case 0: System.out.println("我是大英雄");
+            switch (i) {
+                case 0:
+                    System.out.println("我是大英雄");
                 case 1: {
                     System.out.println("他也是大英雄");
                     break;
@@ -27,13 +28,14 @@ public class SwitchCase {
                     System.out.println("you re a girl");
                     break;
                 }
-                default: System.out.println("nothing");
+                default:
+                    System.out.println("nothing");
             }
         }
 
     }
 
-    public enum Day{
+    public enum Day {
         MONDAY,
         TUESDAY,
         WEDNESDAY,

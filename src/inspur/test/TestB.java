@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
  * 浪潮考试2：超级素数
+ *
  * @link 连接 https://blog.csdn.net/weixin_39326965/article/details/78442191
  */
 

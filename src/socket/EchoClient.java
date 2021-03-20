@@ -5,16 +5,16 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class EchoClient{
+public class EchoClient {
     //客户端
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String hostname = "127.0.0.1";
 
         //Socket端口
         int port = 6066;
         Scanner userIn = new Scanner(System.in);
-        try{
+        try {
             //建立Socket连接
             Socket socket = new Socket(hostname, port);
             //获取socket输出流
@@ -25,13 +25,12 @@ public class EchoClient{
             String userInput;
             System.out.println("请输入信息为：");
             //输出exit，退出
-            while (!"exit".equals(userInput = userIn.nextLine())){
+            while (!"exit".equals(userInput = userIn.nextLine())) {
                 out.println(userInput);
                 System.out.println("收到服务端回应：" + in.readLine());
             }
             socket.close();
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

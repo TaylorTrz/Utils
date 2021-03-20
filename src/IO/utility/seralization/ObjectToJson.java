@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class ObjectToJson {
     @Test
-    public void  objectToJson() {
+    public void objectToJson() {
         try {
             Employee employee = new Employee();
 //            employee.name = "Taylor";
@@ -47,9 +47,9 @@ public class ObjectToJson {
     }
 
     @Test
-    public void stringArrayJson() throws IOException, JsonProcessingException{
+    public void stringArrayJson() throws IOException, JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        String[] stringArray = {"a", "b","b"};
+        String[] stringArray = {"a", "b", "b"};
         String jsonString = mapper.writeValueAsString(stringArray);
         System.out.println("serializing to string: " + jsonString);
 

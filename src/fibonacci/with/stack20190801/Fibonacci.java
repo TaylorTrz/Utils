@@ -1,7 +1,7 @@
 package fibonacci.with.stack20190801;
 
 /**
-用stack存储并计算fibonacci数列，之前用递归，现在用stack，效率大大提升
+ * 用stack存储并计算fibonacci数列，之前用递归，现在用stack，效率大大提升
  */
 
 import java.util.*;

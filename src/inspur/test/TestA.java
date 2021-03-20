@@ -6,6 +6,7 @@ import java.util.*;
 
 /**
  * 浪潮考试题目1：绳子长度N>5，考虑如何进行分段，从而分段各长度的积MAX
+ *
  * @link 参考链接： https://blog.csdn.net/csdn_zjp/article/details/100714202
  */
 
@@ -30,6 +31,7 @@ public class TestA {
 
     /**
      * 解法1：时间空间消耗极大，超过8就错误
+     *
      * @param lists
      * @param lenArray
      * @param len

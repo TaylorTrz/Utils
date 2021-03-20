@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class StreamValidate {
     public static void main(String[] args) {
         // Java8新特性
-        List<String> stringLists = Arrays.asList("efg", "", "abc", "bc", "ghij","", "lmn");
+        List<String> stringLists = Arrays.asList("efg", "", "abc", "bc", "ghij", "", "lmn");
         long count = stringLists.stream().filter(String::isEmpty).count();
         System.out.println("统计空字符串的数量：" + count);
 
@@ -23,14 +23,14 @@ public class StreamValidate {
         List<String> filtered = stringLists.stream().filter(String -> !String.isEmpty()).collect(Collectors.toList());
         System.out.println("消除空字符b串：" + filtered);
 
-        String mergedFiltered  = stringLists.stream().filter(String -> !String.isEmpty()).collect(Collectors.joining("..."));
+        String mergedFiltered = stringLists.stream().filter(String -> !String.isEmpty()).collect(Collectors.joining("..."));
         System.out.println("消除并连接剩下字符串：" + mergedFiltered);
 
         List<Integer> numberLists = Arrays.asList(2, 3, 3, 2, 5, 2, 7);
         count = numberLists.stream().filter(Integer -> Integer >= 5).count();
         System.out.println("大于4的所有整型：" + count);
 
-        List<Integer> squareLists = numberLists.stream().map(i -> i*i).distinct().collect(Collectors.toList());
+        List<Integer> squareLists = numberLists.stream().map(i -> i * i).distinct().collect(Collectors.toList());
         System.out.println("映射得到平方集合：" + squareLists);
 
         IntSummaryStatistics intSummaryStatistics = numberLists.stream().mapToInt(x -> x).summaryStatistics();
@@ -58,12 +58,12 @@ public class StreamValidate {
     }
 
     @Test
-        public void getDeclareMethods() {
-            try {
-                Arrays.stream(Class.forName("java.time.ZonedDateTime").getDeclaredMethods()).map(Method::getName).distinct().forEach(System.out::println);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+    public void getDeclareMethods() {
+        try {
+            Arrays.stream(Class.forName("java.time.ZonedDateTime").getDeclaredMethods()).map(Method::getName).distinct().forEach(System.out::println);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @details  当函数式接口的实现恰好是一个方法的调用，那么::
+ * @details 当函数式接口的实现恰好是一个方法的调用，那么::
  * 静态方法的方法引用
  * 非静态方法的方法引用
  * 构造函数的方法引用
@@ -35,6 +35,7 @@ public class MethodReference {
 
 class InnerClass {
     private OuterInterface outerInterface;
+
     // 静态方法
     public static void staticMethodReference() {
         System.out.println("status: 静态方法调用");

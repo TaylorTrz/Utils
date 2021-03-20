@@ -9,7 +9,7 @@ package singleton20190826;
  */
 
 public class SingletonPatternDemo {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // 尝试用普通方法进行实例化，直接报错
 //        SingleObject instance = new SingleObject();
         SingleObject instance = SingleObject.getInstance();

@@ -1,8 +1,8 @@
 package utils.stream;
 
 /**
- * @detail 模拟流式API或链式调用
  * @author taoruizhe
+ * @detail 模拟流式API或链式调用
  * @date 20191220
  */
 

@@ -39,7 +39,7 @@ public class ObjectList implements Serializable {
         // 查看数组长度是否足够
         if (pivot >= size) {
             System.out.println("OutOfArrayBoundaryExceptin");
-            return ;
+            return;
         }
         objects[pivot] = object;
         pivot++;
@@ -89,10 +89,9 @@ public class ObjectList implements Serializable {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return Arrays.toString(objects);
     }
-
 
 
 }

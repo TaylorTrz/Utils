@@ -7,5 +7,7 @@ package singleton20190826;
 
 public enum Singleton6 {
     INSTANCE;
-    public void whateverMethod(){}
+
+    public void whateverMethod() {
+    }
 }

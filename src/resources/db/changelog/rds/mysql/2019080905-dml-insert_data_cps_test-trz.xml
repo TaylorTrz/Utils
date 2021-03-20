@@ -6,23 +6,23 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext classpath:/liquibase/dbchangelog-ext.xsd
     http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
-	
-	<changeSet author="trz" id="2019080905-0">
-		<insert tableName="cps_test">
-			<column name="person" value="taoruizhe"  remarks="admin" />
-			<column name="grade" value="100" />
-			<column name="gender" value="male" />
-		</insert>
-		<comment>admin</comment>
-	</changeSet>
-	
-	<changeSet author="trz" id="2019080905-1">
-		<insert tableName="cps_test">
-			<column name="person" value="xiaoming" remarks="developer" />
-			<column name="grade" value="1">
-			</column>
-		</insert>
-		<comment>developer</comment>
-	</changeSet>
-	
+
+    <changeSet author="trz" id="2019080905-0">
+        <insert tableName="cps_test">
+            <column name="person" value="taoruizhe" remarks="admin"/>
+            <column name="grade" value="100"/>
+            <column name="gender" value="male"/>
+        </insert>
+        <comment>admin</comment>
+    </changeSet>
+
+    <changeSet author="trz" id="2019080905-1">
+        <insert tableName="cps_test">
+            <column name="person" value="xiaoming" remarks="developer"/>
+            <column name="grade" value="1">
+            </column>
+        </insert>
+        <comment>developer</comment>
+    </changeSet>
+
 </databaseChangeLog>

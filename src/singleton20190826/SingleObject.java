@@ -8,13 +8,14 @@ public class SingleObject {
     private static SingleObject instance = new SingleObject();
 
     // 单例模式的特点是只有一个实例化对象，且只能由对象自己实例化自己，并且构造函数为private
-    private SingleObject(){}
+    private SingleObject() {
+    }
 
-    public static SingleObject getInstance(){
+    public static SingleObject getInstance() {
         return instance;
     }
 
-    public  void showMessage(){
+    public void showMessage() {
         System.out.println("singleton is created!");
     }
 

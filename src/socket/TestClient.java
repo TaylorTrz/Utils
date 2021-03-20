@@ -30,13 +30,13 @@ public class TestClient {
 
             String msg;
             System.out.println("输入...");
-            while(!(msg = inputMsg.nextLine()).equals("exit")) {
+            while (!(msg = inputMsg.nextLine()).equals("exit")) {
                 out.println(msg);
                 System.out.println("收到服务端响应： " + in.readLine());
             }
             client.close();
 
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

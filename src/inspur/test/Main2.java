@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Main2 {
 
-    static HashSet hashSet= new HashSet();
-    static HashSet hashSet2= new HashSet();
+    static HashSet hashSet = new HashSet();
+    static HashSet hashSet2 = new HashSet();
 
     public static boolean isPrime(long num) {
-        if(hashSet2.contains(num)){
+        if (hashSet2.contains(num)) {
             return true;
         }
         if (hashSet.contains(num)) {
@@ -34,7 +34,7 @@ public class Main2 {
     public static boolean isPrime2(long num) {
         if (isPrime(num)) {
             while (num > 9) {
-                if(num%10%2==0)
+                if (num % 10 % 2 == 0)
                     return false;
                 num = num / 10;
                 if (!isPrime(num)) {
@@ -59,12 +59,12 @@ public class Main2 {
                 start *= 10;
             }
             end = start * 10 - 1;
-            int step =2;
-            if(num==1){
-                step =1;
+            int step = 2;
+            if (num == 1) {
+                step = 1;
             }
             start++;
-            for (long i = start; i < end; i+=step) {
+            for (long i = start; i < end; i += step) {
                 if (Main2.isPrime2(i)) {
                     System.out.println(i);
                 }

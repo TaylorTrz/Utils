@@ -3,18 +3,15 @@ package permutation.string.array;
 import java.util.*;
 
 /**
- * @Test  练习如何求取字符串的所有排列
- *
- * @Test  comparator的实现
- *
- * @Test  sort()方法重写
- *
+ * @Test 练习如何求取字符串的所有排列
+ * @Test comparator的实现
+ * @Test sort()方法重写
  */
 
 public class GetAllSequence {
 
     public static void main(String[] args) {
-        List<String>  lists= new ArrayList<>();
+        List<String> lists = new ArrayList<>();
         getAllSequence("abcb".toCharArray(), 0, lists);
 
 //        Comparator<String> comparator = (String a, String b) -> {
@@ -62,11 +59,9 @@ public class GetAllSequence {
         public int compare(String a, String b) {
             if (a.toCharArray()[3] > b.toCharArray()[3]) {
                 return 1;
-            }
-            else if (a.toCharArray()[3] < b.toCharArray()[3]) {
+            } else if (a.toCharArray()[3] < b.toCharArray()[3]) {
                 return -1;
-            }
-            else
+            } else
                 return 0;
         }
     }

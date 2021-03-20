@@ -1,8 +1,6 @@
 package utils.decimal;
 
 
-
-
 /**
  * 进制转换工具
  *
@@ -29,7 +27,7 @@ public class DecimalConverter {
     public long bin2Dec(String bin) {
         long dec = 0L;
         StringBuilder stb = new StringBuilder(bin);
-        for (int i = stb.length() - 1; i >= 0 ; i--) {
+        for (int i = stb.length() - 1; i >= 0; i--) {
             dec = dec + (long) Math.pow(2, stb.length() - 1 - i) * (stb.charAt(i) - 48);
         }
         return dec;
@@ -73,7 +71,7 @@ public class DecimalConverter {
             if (res < 10) {
                 hex.append(res);
             } else {
-                hex.append(Character.toChars(res + 55) );
+                hex.append(Character.toChars(res + 55));
             }
             dec = quotient;
         }
@@ -92,8 +90,6 @@ public class DecimalConverter {
         }
         return dec;
     }
-
-
 
 
     public static void main(String[] args) {

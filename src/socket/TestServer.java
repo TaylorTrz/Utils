@@ -17,7 +17,7 @@ public class TestServer {
             BufferedReader in = new BufferedReader(new InputStreamReader(server.getInputStream()));
 
             String msg;
-            while( (msg = in.readLine()) != null) {
+            while ((msg = in.readLine()) != null) {
                 System.out.println("client message: " + msg);
                 out.println(msg);
             }

@@ -9,10 +9,10 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 
-public class EchoServer{
+public class EchoServer {
     //简单的Socket应用
-    public static void main(String[] args){
-        try{
+    public static void main(String[] args) {
+        try {
             //服务器端需要用ServerSocket类
             ServerSocket serverSocket = new ServerSocket(6066);
             //Block 等待客户端连接
@@ -21,12 +21,11 @@ public class EchoServer{
             BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
             String userIn;
-            while ((userIn = in.readLine()) != null){
+            while ((userIn = in.readLine()) != null) {
                 System.out.println("收到客户端消息：" + userIn);
                 out.println("消息已收到，请继续发送...");
             }
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
